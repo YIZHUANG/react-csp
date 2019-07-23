@@ -1,0 +1,45 @@
+{
+  "name": "react-csp",
+  "version": "1.0.0",
+  "description": "A npm package/plugin that generate Content Security Policy for create-react-app without eject or rewired.",
+  "main": "index.js",
+  "types": "./lib/types.d.ts",
+  "scripts": {
+    "dev": "npm run build && node lib/index.js",
+    "build": "tsc --project tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint --fix \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\""
+  },
+  "bin": {
+    "react-csp": "bin/index.js"
+  },
+  "author": "YIZHUANG",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YIZHUANG/react-csp"
+  },
+  "keywords": [
+    "Cli tool",
+    "Nodejs",
+    "React",
+    "create-react-app",
+    "CSP",
+    "Content Security Policy",
+    "TypeScript"
+  ],
+  "homepage": "https://github.com/YIZHUANG/react-csp",
+  "bugs": {
+    "url": "https://github.com/YIZHUANG/react-csp/issues"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^12.2.4",
+    "@types/node": "^12.6.8",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "jsdom": "^15.1.1"
+  }
+}

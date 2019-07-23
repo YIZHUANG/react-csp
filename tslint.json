@@ -1,0 +1,7 @@
+{
+  "defaultSeverity": "error",
+  "rules": {
+    "ordered-imports": false,
+    "ter-arrow-parens": [false, "as-needed"]
+  }
+}
