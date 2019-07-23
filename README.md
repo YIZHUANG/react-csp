@@ -1,10 +1,15 @@
 <h1 align="center">Welcome to react-csp 👋</h1>
-<p>
-  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/YIZHUANG/react-csp">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
-  </a>
-</p>
+
+[![Package Quality](https://npm.packagequality.com/shield/react-csp.svg)](https://packagequality.com/#?package=react-csp)
+[![npm version](https://badge.fury.io/js/react-csp.svg)](https://www.npmjs.com/package/react-csp)
+<a href="https://github.com/YIZHUANG/react-csp">
+<img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+</a>
+<a href="https://github.com/YIZHUANG/react-csp/graphs/commit-activity">
+<img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
+</a>
+<a href="https://github.com/YIZHUANG/react-csp/blob/master/LICENSE">
+<img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
 
 > A npm package/plugin that generates Content Security Policy for create-react-app without eject or rewired.
 
@@ -42,6 +47,8 @@ root:
 
 The content in the file should be similar to the following:
 
+csp.js
+
 ```
 module.exports = {
   dev: {
@@ -56,14 +63,39 @@ module.exports = {
   "style-src": [
     "'self'",
     "https://*.facebook.com",
-    "connect-src": [
-      "'self'",
-      "https://mybackend.com"
-    ]
+  ],
+  "connect-src": [
+    "'self'",
+    "https://mybackend.com"
   ]
   }
 }
+```
 
+Or
+csp.json
+
+```
+{
+  dev: {
+  "default-src": ["'self'"],
+  "style-src": [
+    "'self'",
+    "https://*.google.com",
+  ]
+  },
+  prod: {
+  "default-src": "'self'",  // can be either a string or an array.
+  "style-src": [
+    "'self'",
+    "https://*.facebook.com",
+  ],
+  "connect-src": [
+    "'self'",
+    "https://mybackend.com"
+  ]
+  }
+}
 ```
 
 For more config, please refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
@@ -73,9 +105,10 @@ For dev environment:
 Run `react-csp dev` in the command line.
 
 For prod environment:
+
 Run `react-csp prod` in the command line.
 
-The recommented approach is to put the following in your package.json:
+The recommented approach is to put the following in your package.json so that CSP in only generated when deploying to production/staging:
 
 ```
 {
