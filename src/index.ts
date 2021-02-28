@@ -1,5 +1,7 @@
 import { JSDOM, DOMWindow } from "jsdom";
 import chalk from "chalk";
+import pretty from 'pretty';
+
 
 import { TemplateElement } from "./types";
 import { getConfig, loadHTML, writeToHtml, formatCSP } from "./utils";
@@ -43,7 +45,7 @@ function reshapeHTML(oldHTML: string, csp: string) {
     );
     head && head.insertAdjacentElement("beforeend", cspElement);
   }
-  const newHTML = dom.serialize();
+  const newHTML = pretty(dom.serialize(), {ocd: true});
   return newHTML;
 }
 
