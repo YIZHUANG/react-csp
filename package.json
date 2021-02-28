@@ -1,6 +1,6 @@
 {
   "name": "react-csp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A npm package/plugin that generate Content Security Policy for create-react-app without eject or rewired.",
   "main": "index.js",
   "types": "./lib/types.d.ts",
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "jsdom": "^15.1.1"
+    "jsdom": "^15.1.1",
+    "pretty": "^2.0.0"
   }
 }
