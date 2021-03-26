@@ -41,11 +41,11 @@ function reshapeHTML(oldHTML: string, csp: string) {
     console.log(
       `${chalk.red(
         "No CSP tag present"
-      )} in the HTML file, inserting it at the end of the <head> tag`
+      )} in the HTML file, inserting it as the first element inside the <head> tag`
     );
-    head && head.insertAdjacentElement("beforeend", cspElement);
+    head && head.insertAdjacentElement("afterbegin", cspElement);
   }
-  const newHTML = pretty(dom.serialize(), {ocd: true});
+  const newHTML = pretty(dom.serialize(), { ocd: true });
   return newHTML;
 }
 
