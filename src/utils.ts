@@ -2,7 +2,7 @@ import * as util from "util";
 import * as fs from "fs";
 import chalk from "chalk";
 
-import { baseDir, configPath, htmlPath } from "./constants";
+import { baseDir, configPath, htmlPath, filename } from "./constants";
 import { CspConfig } from "./types";
 
 let env = "prod";
@@ -65,7 +65,7 @@ async function getConfig() {
 
 async function loadHTML() {
   try {
-    console.log(`Loading existing from ${chalk.red(htmlPath)}`);
+    console.log(`NEW Loading existing from ${chalk.red(htmlPath)}`);
     const html = await readFile(htmlPath, "utf8");
     console.log(`${chalk.green("HTML")} is loaded`);
     return html;
@@ -79,7 +79,7 @@ async function writeToHtml(html: string) {
   );
   try {
     await writeFile(htmlPath, html, "utf8");
-    console.log(chalk.blue("Successfully generated CSP in index.html!"));
+    console.log(chalk.blue(`Successfully generated CSP in ${filename}`));
   } catch (e) {
     console.log(chalk.red("Fail to generate CSP policy..."));
     throw e;
