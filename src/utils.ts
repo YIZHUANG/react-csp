@@ -25,7 +25,7 @@ const patterns = {
 
 async function getConfig() {
   const allFiles = fs.readdirSync(baseDir);
-  const fileName = allFiles.find(fileName =>
+  const fileName = allFiles.find((fileName) =>
     Array.isArray(fileName.match(patterns.configName))
   );
   console.log(
@@ -46,11 +46,7 @@ async function getConfig() {
   const fileExtension = fileExtenstions[1];
   let config = null;
   if (fileExtension === "json") {
-    try {
-      config = JSON.parse(await readFile(configPath(fileExtension), "utf8"));
-    } catch (e) {
-      throw e;
-    }
+    config = JSON.parse(await readFile(configPath(fileExtension), "utf8"));
   }
   if (fileExtension === "js") {
     config = require(configPath(fileExtension));
@@ -64,14 +60,10 @@ async function getConfig() {
 }
 
 async function loadHTML() {
-  try {
-    console.log(`NEW Loading existing from ${chalk.red(htmlPath)}`);
-    const html = await readFile(htmlPath, "utf8");
-    console.log(`${chalk.green("HTML")} is loaded`);
-    return html;
-  } catch (e) {
-    throw e;
-  }
+  console.log(`NEW Loading existing from ${chalk.red(htmlPath)}`);
+  const html = await readFile(htmlPath, "utf8");
+  console.log(`${chalk.green("HTML")} is loaded`);
+  return html;
 }
 async function writeToHtml(html: string) {
   console.log(

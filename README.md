@@ -118,6 +118,12 @@ The recommented approach is to put the following in your package.json so that CS
 }
 ```
 
+## Custom file name
+
+`react-csp dev --filename=any.html`
+or
+`react-csp dev --f=any.html`
+
 ## Run tests
 
 ```sh
