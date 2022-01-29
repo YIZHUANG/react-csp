@@ -60,7 +60,7 @@ async function getConfig() {
 }
 
 async function loadHTML() {
-  console.log(`NEW Loading existing from ${chalk.red(htmlPath)}`);
+  console.log(`NEW Loading existing from ${chalk.cyan(htmlPath)}`);
   const html = await readFile(htmlPath, "utf8");
   console.log(`${chalk.green("HTML")} is loaded`);
   return html;
